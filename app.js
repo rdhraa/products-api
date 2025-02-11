@@ -5,14 +5,15 @@ const bcrypt = require('bcrypt')
 const cors = require('cors')
 
 const app = express()
-const port = 4000
+const port = process.env.PORT
 const secretKey="secret123"
+require('dotenv').config()
 app.use(express.json())
 
 
 
 app.use(cors({
-    origin: 'http://localhost:5173',  // Allow requests from the React frontend (port 5173)
+    origin: 'https://products-app-11.onrender.com'
   }))
 
 
@@ -21,8 +22,11 @@ app.get('/',(req,res)=>{
     res.send("from the server")
 })
 
+const url=process.env.MONGODB_URL
+
 async function main(){
-    await mongoose.connect('mongodb+srv://entri_user:Kukku00000@cluster0.odat3.mongodb.net/e48db')
+    console.log(url)
+    await mongoose.connect(url)
 
 }
 
