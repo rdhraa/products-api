@@ -13,7 +13,7 @@ app.use(express.json())
 
 
 app.use(cors({
-    origin: 'https://products-app-11.onrender.com'
+    origin: ['https://products-app-11.onrender.com','https://e-commerce-website-3no8.onrender.com']
   }))
 
 
